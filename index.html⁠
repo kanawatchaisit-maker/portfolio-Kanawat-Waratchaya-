@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Kanawat & Waratchaya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Kanit & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Kanit', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#3b82f6',
+                            cyan: '#06b6d4',
+                            purple: '#a855f7',
+                            darkBg: '#050b14',
+                            cardBg: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-nav {
+            background: rgba(5, 11, 20, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-brand-darkBg text-slate-100 font-sans selection:bg-blue-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-blue-500/30">
+                        P
+                    </div>
+                    <span class="text-lg sm:text-xl font-bold tracking-wide text-white">
+                        PORTFOLIO<span class="text-blue-400">.</span>
+                    </span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <a href="#home" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition">หน้าหลัก</a>
+                    <a href="#profile" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition">เกี่ยวกับเรา</a>
+                    <a href="#education" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition">การศึกษา</a>
+                    <a href="#works" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition">ผลงาน & กิจกรรม</a>
+                    <a href="#goals" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition">เป้าหมาย</a>
+                    <a href="#contact" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition">ติดต่อ</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-slate-800 px-4 pt-2 pb-4 space-y-1">
+            <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">หน้าหลัก</a>
+            <a href="#profile" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">เกี่ยวกับเรา</a>
+            <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">การศึกษา</a>
+            <a href="#works" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">ผลงาน & กิจกรรม</a>
+            <a href="#goals" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">เป้าหมาย</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">ติดต่อ</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <!-- Background Lighting FX -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-72 h-72 bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-blue-500/30 text-blue-400 text-xs sm:text-sm font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                โรงเรียนทุ่งใหญ่เฉลิมราชอนุสรณ์รัชมังคลาภิเษก
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
+                STUDENT <span class="gradient-text">PORTFOLIO</span>
+            </h1>
+            
+            <h2 class="text-xl sm:text-2xl font-semibold text-slate-300 mb-6">
+                แฟ้มสะสมผลงาน รวบรวมศักยภาพและความตั้งใจของเรา 2 คน
+            </h2>
+            
+            <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+                นำเสนอข้อมูลประวัติส่วนตัว เส้นทางการศึกษา กิจกรรมเด่น และความมุ่งมั่นในการเรียนต่อระดับอุดมศึกษา เพื่อพร้อมก้าวสู่ความสำเร็จในอนาคต
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#profile" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>ทำความรู้จักพวกเรา</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+                <a href="#works" class="w-full sm:w-auto px-8 py-3.5 rounded-xl glass-card hover:bg-slate-800/80 text-slate-200 font-medium hover:border-slate-600 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>ชมผลงานทั้งหมด</span>
+                    <i class="fa-solid fa-images text-xs text-slate-400"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text inline-block">ABOUT US</h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-2">ข้อมูลส่วนตัวและทักษะความสนใจ</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            
+            <!-- Student 1 Card -->
+            <div class="glass-card rounded-2xl p-6 sm:p-8 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-bl-full group-hover:bg-blue-600/20 transition-all"></div>
+                
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                    <div class="relative">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAWgA+ADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJEAQIRAxAhBRIxBFETBnEiM0FRYfCRobHBF4LR4TNy8UACFi5U8NDh8vhDhe1micXMNLU5ErkJggg==" alt="กณวรรธน์ ชัยสิทธิ์" class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl object-cover object-top border-2 border-blue-500/40 shadow-xl">
+                        <span class="absolute -bottom-2 -right-2 bg-blue-600 text-white text-xs px-2.5 py-1 rounded-md font-bold shadow">ST-01</span>
+                    </div>
+
+                    <div class="flex-1 text-center sm:text-left">
+                        <h3 class="text-2xl font-bold text-white mb-1">นาย กณวรรธน์ ชัยสิทธิ์</h3>
+                        <p class="text-blue-400 text-sm font-medium mb-4">ชื่อเล่น: ตัน (Tan)</p>
+                        
+                        <div class="space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
+                            <div class="flex justify-between sm:justify-start gap-4">
+                                <span class="text-slate-400 w-24">การศึกษา:</span>
+                                <span>มัธยมศึกษาปีที่ 6</span>
+                            </div>
+                            <div class="flex justify-between sm:justify-start gap-4">
+                                <span class="text-slate-400 w-24">โรงเรียน:</span>
+                                <span class="text-xs sm:text-sm">ทุ่งใหญ่เฉลิมราชอนุสรณ์รัชมังคลาภิเษก</span>
+                            </div>
+                            <div class="flex justify-between sm:justify-start gap-4">
+                                <span class="text-slate-400 w-24">ความสนใจ:</span>
+                                <span class="text-blue-300 font-medium">รัฐศาสตร์และการปกครอง</span>
+                            </div>
+                        </div>
+
+                        <!-- Skill Tags -->
+                        <div class="mt-5 flex flex-wrap gap-2 justify-center sm:justify-start">
+                            <span class="px-2.5 py-1 bg-slate-800 text-blue-300 text-xs rounded-lg border border-slate-700">ภาวะผู้นำ</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-blue-300 text-xs rounded-lg border border-slate-700">การพูดต่อหน้าชุมชน</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-blue-300 text-xs rounded-lg border border-slate-700">กิจกรรมสังคม</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student 2 Card -->
+            <div class="glass-card rounded-2xl p-6 sm:p-8 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-600/10 rounded-bl-full group-hover:bg-cyan-600/20 transition-all"></div>
+                
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                    <div class="relative">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAWgA+ADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJEAQIRAxAhBRIxBFETBnEiM0FRYfCRobHBF4LR4TNy8UACFi5U8NDh8vhDhe1micXMNLU5ErkJggg==" alt="วรัชยา พลพิชัย" class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl object-cover object-top border-2 border-cyan-500/40 shadow-xl">
+                        <span class="absolute -bottom-2 -right-2 bg-cyan-600 text-white text-xs px-2.5 py-1 rounded-md font-bold shadow">ST-02</span>
+                    </div>
+
+                    <div class="flex-1 text-center sm:text-left">
+                        <h3 class="text-2xl font-bold text-white mb-1">นางสาว วรัชยา พลพิชัย</h3>
+                        <p class="text-cyan-400 text-sm font-medium mb-4">ชื่อเล่น: [เพิ่มชื่อเล่น]</p>
+                        
+                        <div class="space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
+                            <div class="flex justify-between sm:justify-start gap-4">
+                                <span class="text-slate-400 w-24">การศึกษา:</span>
+                                <span>มัธยมศึกษาปีที่ 6</span>
+                            </div>
+                            <div class="flex justify-between sm:justify-start gap-4">
+                                <span class="text-slate-400 w-24">โรงเรียน:</span>
+                                <span class="text-xs sm:text-sm">ทุ่งใหญ่เฉลิมราชอนุสรณ์รัชมังคลาภิเษก</span>
+                            </div>
+                            <div class="flex justify-between sm:justify-start gap-4">
+                                <span class="text-slate-400 w-24">ความสนใจ:</span>
+                                <span class="text-cyan-300 font-medium">[เพิ่มความสนใจเฉพาะด้าน]</span>
+                            </div>
+                        </div>
+
+                        <!-- Skill Tags -->
+                        <div class="mt-5 flex flex-wrap gap-2 justify-center sm:justify-start">
+                            <span class="px-2.5 py-1 bg-slate-800 text-cyan-300 text-xs rounded-lg border border-slate-700">การทำงานร่วมกัน</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-cyan-300 text-xs rounded-lg border border-slate-700">การวิเคราะห์</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-cyan-300 text-xs rounded-lg border border-slate-700">ความคิดสร้างสรรค์</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text inline-block">EDUCATION</h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-2">ประวัติการศึกษาและการทำกิจกรรมในสถาบัน</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto glass-card rounded-2xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center p-4 text-blue-400 flex-shrink-0">
+                    <i class="fa-solid fa-graduation-cap text-5xl sm:text-6xl"></i>
+                </div>
+                <div class="space-y-3 text-center md:text-left flex-1">
+                    <div class="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full border border-blue-500/20">
+                        ระดับมัธยมศึกษาตอนปลาย
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">โรงเรียนทุ่งใหญ่เฉลิมราชอนุสรณ์รัชมังคลาภิเษก</h3>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        ปัจจุบันกำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6 สถาบันเน้นการส่งเสริมศักยภาพด้านวิชาการ กิจกรรมสร้างสรรค์สังคม และภาวะผู้นำ
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-4 justify-center md:justify-start text-xs sm:text-sm text-slate-400">
+                        <span><i class="fa-solid fa-circle-check text-blue-400 mr-1"></i> สายการเรียน: ทั่วไป / ศิลป์</span>
+                        <span><i class="fa-solid fa-circle-check text-blue-400 mr-1"></i> ชั้นปีที่ศึกษา: ม.6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works & Activities Section -->
+    <section id="works" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text inline-block">ACTIVITIES & WORKS</h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-2">ผลงาน กิจกรรม และความภาคภูมิใจ</p>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mt-8">
+                <button onclick="filterWorks('all')" class="filter-btn active px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 text-white transition">ทั้งหมด</button>
+                <button onclick="filterWorks('kanawat')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">ผลงานกณวรรธน์</button>
+                <button onclick="filterWorks('waratchaya')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">ผลงานวรัชยา</button>
+                <button onclick="filterWorks('cert')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">เกียรติบัตร</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Work Item 1 -->
+            <div class="work-card kanawat cert glass-card rounded-2xl overflow-hidden group hover:border-blue-500/40 transition-all duration-300">
+                <div class="relative overflow-hidden h-52">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAWgA+ADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJEAQIRAxAhBRIxBFETBnEiM0FRYfCRobHBF4LR4TNy8UACFi5U8NDh8vhDhe1micXMNLU5ErkJggg==" alt="กิจกรรมวิชาการ" class="w-full h-full object-cover object-top group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-blue-600/80 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-md">กณวรรธน์</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition">กิจกรรมสภานนักเรียน / ผู้นำ</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        การมีส่วนร่วมในกิจกรรมบริหาร และส่งเสริมระเบียบวินัยในโรงเรียน พัฒนาทักษะการทำงานร่วมกับผู้อื่น
+                    </p>
+                    <div class="text-xs text-slate-500 flex justify-between items-center border-t border-slate-800/80 pt-3">
+                        <span><i class="fa-regular fa-calendar mr-1"></i> ปีการศึกษา 2568</span>
+                        <span class="text-blue-400 font-medium">ดูเพิ่มเติม</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work Item 2 -->
+            <div class="work-card waratchaya glass-card rounded-2xl overflow-hidden group hover:border-cyan-500/40 transition-all duration-300">
+                <div class="relative overflow-hidden h-52">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAWgA+ADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJEAQIRAxAhBRIxBFETBnEiM0FRYfCRobHBF4LR4TNy8UACFi5U8NDh8vhDhe1micXMNLU5ErkJggg==" alt="กิจกรรมสร้างสรรค์" class="w-full h-full object-cover object-top group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-cyan-600/80 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-md">วรัชยา</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition">กิจกรรมจิตอาสาและวิชาการ</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        เข้าร่วมโครงการบำเพ็ญประโยชน์ต่อสังคม และกิจกรรมส่งเสริมความรู้ในและนอกห้องเรียน
+                    </p>
+                    <div class="text-xs text-slate-500 flex justify-between items-center border-t border-slate-800/80 pt-3">
+                        <span><i class="fa-regular fa-calendar mr-1"></i> ปีการศึกษา 2568</span>
+                        <span class="text-cyan-400 font-medium">ดูเพิ่มเติม</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work Item 3 -->
+            <div class="work-card cert kanawat waratchaya glass-card rounded-2xl overflow-hidden group hover:border-purple-500/40 transition-all duration-300">
+                <div class="relative overflow-hidden h-52">
+                    <img src="https://placehold.co/600x400/1e293b/a855f7?text=Certificate" alt="เกียรติบัตร" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-purple-600/80 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-md">ผลงานร่วม</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition">รางวัลและเกียรติบัตรเชิดชูเกียรติ</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        รวบรวมเกียรติบัตรจากการแข่งขันทักษะทางวิชาการและการเข้าร่วมอบรมในระดับต่างๆ
+                    </p>
+                    <div class="text-xs text-slate-500 flex justify-between items-center border-t border-slate-800/80 pt-3">
+                        <span><i class="fa-solid fa-award mr-1 text-yellow-400"></i> เกียรติบัตร</span>
+                        <span class="text-purple-400 font-medium">ดูเพิ่มเติม</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text inline-block">FUTURE GOALS</h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-2">เป้าหมาย ความมุ่งมั่น และคณะที่สนใจ</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card p-8 rounded-2xl border-l-4 border-l-blue-500 relative">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-landmark"></i></div>
+                <h3 class="text-xl font-bold text-white mb-2">เป้าหมายของ กณวรรธน์</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                    มุ่งมั่นศึกษาต่อใน <span class="text-blue-400 font-semibold">คณะรัฐศาสตร์ สาขาการปกครอง</span> เพื่อเรียนรู้โครงสร้างสังคม นโยบายสาธารณะ และการบริหารงาน เพื่อนำความรู้มาพัฒนาชุมชนและสังคมในอนาคต
+                </p>
+                <div class="inline-block px-3 py-1 bg-blue-500/10 text-blue-300 text-xs rounded-lg border border-blue-500/20">
+                    เป้าหมายหลัก: คณะรัฐศาสตร์ / การปกครอง
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl border-l-4 border-l-cyan-500 relative">
+                <div class="text-cyan-400 text-3xl mb-4"><i class="fa-solid fa-compass"></i></div>
+                <h3 class="text-xl font-bold text-white mb-2">เป้าหมายของ วรัชยา</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                    มุ่งพัฒนาศักยภาพตนเองอย่างต่อเนื่อง ตักตวงประสบการณ์และทักษะความรู้ที่สนใจ เพื่อศึกษาต่อในระดับอุดมศึกษาที่ตั้งใจไว้ได้อย่างประสบความสำเร็จ
+                </p>
+                <div class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-300 text-xs rounded-lg border border-cyan-500/20">
+                    เป้าหมายหลัก: [ระบุคณะที่ต้องการศึกษาต่อ]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text inline-block">CONTACT US</h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-2">ช่องทางการติดต่อและติดตามข่าวสาร</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto glass-card rounded-2xl p-6 sm:p-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Contact Kanawat -->
+                <div class="space-y-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                    <h4 class="font-bold text-blue-400 text-lg border-b border-slate-800 pb-2">นาย กณวรรธน์ ชัยสิทธิ์</h4>
+                    <a href="#" class="flex items-center gap-3 text-slate-300 hover:text-white transition text-sm">
+                        <i class="fa-brands fa-facebook text-blue-500 text-lg w-6"></i>
+                        <span>Kanawat Chaisit</span>
+                    </a>
+                    <a href="mailto:contact@example.com" class="flex items-center gap-3 text-slate-300 hover:text-white transition text-sm">
+                        <i class="fa-solid fa-envelope text-blue-400 text-lg w-6"></i>
+                        <span>อีเมลติดต่อ</span>
+                    </a>
+                </div>
+
+                <!-- Contact Waratchaya -->
+                <div class="space-y-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                    <h4 class="font-bold text-cyan-400 text-lg border-b border-slate-800 pb-2">นางสาว วรัชยา พลพิชัย</h4>
+                    <a href="#" class="flex items-center gap-3 text-slate-300 hover:text-white transition text-sm">
+                        <i class="fa-brands fa-facebook text-blue-500 text-lg w-6"></i>
+                        <span>Waratchaya Phonpichai</span>
+                    </a>
+                    <a href="mailto:contact@example.com" class="flex items-center gap-3 text-slate-300 hover:text-white transition text-sm">
+                        <i class="fa-solid fa-envelope text-cyan-400 text-lg w-6"></i>
+                        <span>อีเมลติดต่อ</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-brand-darkBg py-8 px-4 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto space-y-2">
+            <p>© 2026 STUDENT PORTFOLIO. All Rights Reserved.</p>
+            <p class="text-xs text-slate-600">Kanawat Chaisit & Waratchaya Phonpichai | โรงเรียนทุ่งใหญ่เฉลิมราชอนุสรณ์รัชมังคลาภิเษก</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close Mobile Menu when clicking link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Portfolio Category Filter Function
+        function filterWorks(category) {
+            const cards = document.querySelectorAll('.work-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update Active Button Style
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+
+            event.target.classList.remove('bg-slate-800', 'text-slate-300');
+            event.target.classList.add('bg-blue-600', 'text-white');
+
+            // Filter Logic
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.classList.contains(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
